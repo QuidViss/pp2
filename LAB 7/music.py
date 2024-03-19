@@ -8,9 +8,11 @@ songs = ["music/Bôa - Duvet.mp3", "music/Yung Lean - Ginseng Strip.mp3", "music
 current_music = 0
 pygame.mixer.music.load(songs[current_music])
 pygame.mixer.music.play()
-
+background = pygame.image.load("music/back.jpg")
+background_rect = background.get_rect()
 running = True
 while running:
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -29,6 +31,6 @@ while running:
                 pygame.mixer.music.load(songs[current_music])
                 pygame.mixer.music.play()
 
-    screen.fill((255, 255, 255))
+    screen.blit(background, (0, 0))
     pygame.display.flip()
 pygame.quit()
